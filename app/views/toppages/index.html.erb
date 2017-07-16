@@ -1,8 +1,8 @@
 <%= form_for(@parenttask) do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
   <div class="form-group">
-    <%= f.label :name, '新しいToDoを作成する' %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "リスト名を入力してください" %>
+    <%= f.label :name, '新しいToDoリストを作成する' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "ToDoリスト名を入力してください(30文字まで)" %>
   </div>
   <%= f.submit 'リストの作成', class: 'btn btn-primary btn-block' %>
 <% end %>

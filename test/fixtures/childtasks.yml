@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  due_date: 2017-07-15
+  status: false
+  parenttask: one
+
+two:
+  name: MyString
+  due_date: 2017-07-15
+  status: false
+  parenttask: two

@@ -1,0 +1,23 @@
+<%= form_for(@childtask) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+  <div class="form-group">
+    <%= f.label :parenttask_id, 'ToDoリスト名' %>
+    <%= f.collection_select :parenttask_id, Parenttask.all.order("name"), :id, :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, '新しいToDoを作成する' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "ToDoを作成しましょう(30文字まで)" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :due_date, '期限' %>
+    <%= f.date_select :due_date, class: 'form-control', placeholder: "期限を選択してください" %>
+  </div>
+
+  <%= f.submit 'ToDoの作成', class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<% unless childtask_counts(@parenttask) > 0 %>
+  <%= "登録されたToDoがありません。" %>
+<% end %>
+
+<%= render partial: 'parenttasks/parenttask_childtask', collection: @childtasks, as: "childtask" %>

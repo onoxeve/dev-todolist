@@ -2,8 +2,14 @@
   <div class="card">
   <div class="card-block">
     <h4 class="card-title">
-      <%= parenttask.name %>
+      <p><%= link_to parenttask.name, parenttask_path(parenttask) %></p>
     </h4>
+    <p class="card-text">
+      <%= childtask_counts(parenttask) %>個中<%= done_status_counts(parenttask) %>個のタスクが完了済です
+    </p>
+    <p class="card-text">
+      直近の期限： <%= first_due_date(parenttask)  %>
+    </p>
   </div>
   </div>
 </div>

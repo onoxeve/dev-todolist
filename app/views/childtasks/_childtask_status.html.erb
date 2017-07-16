@@ -1,0 +1,5 @@
+<% if childtask.status %>
+  <%= render 'childtasks/done', childtask: childtask %>
+<% else %>
+  <%= render 'childtasks/doing', childtask: childtask %>
+<% end %>

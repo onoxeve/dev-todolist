@@ -1,0 +1,18 @@
+<div class="childtask">
+  <div class="card">
+  <div class="card-block">
+    <h4 class="card-title">
+      <%= childtask.name %>
+    </h4>
+    <div class="card-text">
+      期限： <%= l(childtask.due_date, format: :long) %>
+    </div>
+    <div class="card-text">
+      作成日： <%= l(childtask.created_at, format: :long)  %>
+    </div>
+    <div id="childtask_status-<%= childtask.id %>">
+      <%= render 'childtasks/childtask_status', childtask: childtask %>
+    </div>
+  </div>
+  </div>
+</div>

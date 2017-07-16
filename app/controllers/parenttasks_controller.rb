@@ -1,5 +1,8 @@
 class ParenttasksController < ApplicationController
   def show
+    @parenttask = Parenttask.find(params[:id])
+    @childtask = @parenttask.childtasks.build
+    @childtasks = @parenttask.childtasks.order('created_at DESC').page(params[:page])
   end
 
   def create

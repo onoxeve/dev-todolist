@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715044329) do
+ActiveRecord::Schema.define(version: 20170715095308) do
+
+  create_table "childtasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.date "due_date"
+    t.boolean "status", default: false, null: false
+    t.bigint "parenttask_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parenttask_id"], name: "index_childtasks_on_parenttask_id"
+  end
 
   create_table "parenttasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", default: "", null: false
@@ -18,4 +28,5 @@ ActiveRecord::Schema.define(version: 20170715044329) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "childtasks", "parenttasks"
 end
