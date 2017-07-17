@@ -1,0 +1,15 @@
+<div class="parenttask">
+  <div class="card">
+  <div class="card-block">
+    <h4 class="card-title">
+      <p><%= link_to parenttask.name, parenttask_path(parenttask) %></p>
+    </h4>
+    <p class="card-text">
+      <%= childtask_counts(parenttask) %>個中<%= done_status_counts(parenttask) %>個のタスクが完了済です
+    </p>
+    <div class="card-text">
+      作成日： <%= l(parenttask.created_at, format: :long)  %>
+    </div>
+  </div>
+  </div>
+</div>

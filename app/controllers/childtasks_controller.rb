@@ -7,7 +7,7 @@ class ChildtasksController < ApplicationController
       flash[:success] = "新しいToDoが作成されました"
       redirect_back(fallback_location: root_path)
     else
-      flash[:danger] = "ToDoの作成に失敗しました"
+      flash[:danger] = "ToDoの作成に失敗しました。文字数がオーバーしているか、同名のToDoが存在します。"
       redirect_back(fallback_location: root_path)
     end
   end

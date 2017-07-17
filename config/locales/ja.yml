@@ -31,7 +31,7 @@
 
 ja:
   attributes:
-    name: ""
+    name: "名前"
 
   date:
     formats:

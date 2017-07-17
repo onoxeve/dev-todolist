@@ -1,0 +1,17 @@
+<div class="childtasks_search">
+<% if @childtasks_count > 0 %>
+  ToDoが<%= @childtasks_count %>件見つかりました.
+  <%= render partial: 'parenttasks/tasksearch_result_child', collection: @childtasks, as: "childtask" %>
+<% else %>
+  <%= "対象のToDoは見つかりません" %>
+<% end %>
+</div>
+
+<div class="parenttask_search">
+<% if @parenttasks_count > 0 %>
+  ToDoリストが<%= @parenttasks_count %>件見つかりました.
+  <%= render partial: 'parenttasks/tasksearch_result_parent', collection: @parenttasks, as: "parenttask" %>
+<% else %>
+  <%= "対象のToDoリストは見つかりません" %>
+<% end %>
+</div>

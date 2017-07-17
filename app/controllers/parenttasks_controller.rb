@@ -1,4 +1,14 @@
 class ParenttasksController < ApplicationController
+
+  def new
+    keyword = params[:keyword]
+    @parenttasks = Parenttask.where("name LIKE ?", "%#{keyword}%").order('created_at DESC')
+    @parenttasks_count = Parenttask.where("name LIKE ?", "%#{keyword}%").count
+    @childtasks = Childtask.where("name LIKE ?", "%#{keyword}%").order('created_at DESC')
+    @childtasks_count = Childtask.where("name LIKE ?", "%#{keyword}%").count
+    #binding.pry
+  end
+
   def show
     @parenttask = Parenttask.find(params[:id])
     @childtask = @parenttask.childtasks.build
@@ -23,4 +33,5 @@ class ParenttasksController < ApplicationController
   def parenttask_params
     params.require(:parenttask).permit(:name)
   end
+
 end
