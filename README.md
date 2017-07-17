@@ -17,19 +17,19 @@
 - GoogleChromeで動作確認済    
 
 ## 設計
+sitemap,ER図
+https://cacoo.com/diagrams/jaHXnLqvPPasXHLr
 
+※その他設計は仕様書通り。
 
 ## 開発環境
 - Docker for Mac
 
-以下を配置して、`docker-compose build`  
-```
-docker-compose.yml  
-Dockerfile
-```
-
-その後、`docker-compose up`  
-
+1. git clone
+2. docker-compose build
+3. docker-compose up
+4. docker-compose run web rake db:create
+5. docker-compose run web rake db:migrate
 
 ## 独自機能
 - 初動を早めるため、トップ画面のみページネーション化  
@@ -39,3 +39,4 @@ Dockerfile
 - backup.sql
 
 ## 動作可能URL
+https://onox-todolist.herokuapp.com/
